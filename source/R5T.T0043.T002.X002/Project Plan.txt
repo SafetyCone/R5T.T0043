@@ -1,0 +1,4 @@
+R5T.T0043.T002.X002 - IProjectIndexOperator and IProjectIndexEntryOperator JSON file de/serialization extensions.
+
+Goals
+

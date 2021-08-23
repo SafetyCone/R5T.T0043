@@ -1,0 +1,4 @@
+R5T.T0043.T002.X001 - IProjectIndexOperator and IProjectIndexEntryOperator basic extensions.
+
+Goals
+

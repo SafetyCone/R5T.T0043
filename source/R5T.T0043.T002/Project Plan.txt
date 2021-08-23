@@ -1,0 +1,4 @@
+R5T.T0043.T002 - IProjectIndexOperator and IProjectIndexEntryOperator types.
+
+Goals
+
