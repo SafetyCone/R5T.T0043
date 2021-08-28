@@ -26,6 +26,16 @@ namespace System
             ProjectIndex index,
             bool overwrite = IOHelper.DefaultOverwriteValue)
         {
+            _.OrderEntriesAlphabeticallyByName(index);
+
+            _.WriteToJsonFileWithoutAlphabetization(jsonFilePath, index, overwrite);
+        }
+
+        public static void WriteToJsonFileWithoutAlphabetization(this IProjectIndexOperator _,
+            string jsonFilePath,
+            ProjectIndex index,
+            bool overwrite = IOHelper.DefaultOverwriteValue)
+        {
             JsonFileHelper.WriteToFile(jsonFilePath, index.Entries, overwrite: overwrite);
         }
     }

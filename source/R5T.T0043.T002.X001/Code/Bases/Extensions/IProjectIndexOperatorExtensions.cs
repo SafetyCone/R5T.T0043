@@ -70,6 +70,12 @@ namespace System
             _.AddEntry(index, entry);
         }
 
+        public static void ClearEntries(this IProjectIndexOperator _,
+            ProjectIndex index)
+        {
+            index.Entries.Clear();
+        }
+
         public static ProjectIndex From(this IProjectIndexOperator _,
             IEnumerable<ProjectIndexEntry> entries)
         {
@@ -121,6 +127,25 @@ namespace System
         {
             var output = new ProjectIndex();
             return output;
+        }
+
+        public static void OrderEntriesAlphabeticallyByName(this IProjectIndexOperator _,
+            ProjectIndex index)
+        {
+            var orderedEntries = index.Entries
+                .OrderAlphabetically(xEntry => xEntry.Name)
+                .ToArray();
+
+            _.ReplaceEntries(index, orderedEntries);
+        }
+
+        public static void ReplaceEntries(this IProjectIndexOperator _,
+            ProjectIndex index,
+            ICollection<ProjectIndexEntry> collection)
+        {
+            _.ClearEntries(index);
+
+            index.Entries.AddRange(collection);
         }
     }
 }
