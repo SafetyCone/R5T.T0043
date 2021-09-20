@@ -25,7 +25,7 @@ namespace System
             ProjectIndex index,
             ProjectIndexEntry entry)
         {
-            var wasFound = _.HasEntry(index, entry);
+            var wasFound = _.HasEntryFirstOrDefault(index, entry);
             if (!wasFound)
             {
                 // Only if not found, add the entry.
@@ -37,8 +37,8 @@ namespace System
             ProjectIndex index,
             ProjectIndexEntry entry)
         {
-            var wasFound = _.HasEntry(index, entry);
-            if (!wasFound)
+            var wasFound = _.HasEntryFirstOrDefault(index, entry);
+            if (wasFound)
             {
                 var message = Instances.ExceptionMessageGenerator.EntryAlreadyExists(entry);
 
@@ -86,7 +86,7 @@ namespace System
             return output;
         }
 
-        public static WasFound<ProjectIndexEntry> HasEntry(this IProjectIndexOperator _,
+        public static WasFound<ProjectIndexEntry> HasEntryFirstOrDefault(this IProjectIndexOperator _,
             ProjectIndex index,
             ProjectIndexEntry entry)
         {
@@ -98,7 +98,7 @@ namespace System
             return output;
         }
 
-        public static WasFound<ProjectIndexEntry> HasEntry(this IProjectIndexOperator _,
+        public static WasFound<ProjectIndexEntry> HasEntryFirstOrDefault(this IProjectIndexOperator _,
             ProjectIndex index,
             string projectName,
             string projectFilePath)
@@ -111,7 +111,7 @@ namespace System
             return output;
         }
 
-        public static WasFound<ProjectIndexEntry> HasEntry(this IProjectIndexOperator _,
+        public static WasFound<ProjectIndexEntry> HasEntryByFilePathFirstOrDefault(this IProjectIndexOperator _,
             ProjectIndex index,
             string projectFilePath)
         {
