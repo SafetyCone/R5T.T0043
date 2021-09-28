@@ -21,11 +21,9 @@ namespace System
             string projectName,
             string projectFilePath)
         {
-            var output = a is null
-                ? false
-                : true
-                    && a.FilePath == projectFilePath
-                    && a.Name == projectName
+            var output = a is not null
+                && a.FilePath == projectFilePath
+                && a.Name == projectName
                 ;
 
             return output;

@@ -141,11 +141,11 @@ namespace System
 
         public static void ReplaceEntries(this IProjectIndexOperator _,
             ProjectIndex index,
-            ICollection<ProjectIndexEntry> collection)
+            IEnumerable<ProjectIndexEntry> entries)
         {
             _.ClearEntries(index);
 
-            index.Entries.AddRange(collection);
+            index.Entries.AddRange(entries);
         }
     }
 }
